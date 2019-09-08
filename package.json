@@ -8,6 +8,7 @@
     "extends": "./configs/.babelrc"
   },
   "scripts": {
+    "postinstall": "npm run build",
     "start": "webpack-dev-server --config ./demo/webpack.config.js --mode development",
     "build": "babel src --out-dir dist",
     "lint": "npm run eslint && npm run tsc",
