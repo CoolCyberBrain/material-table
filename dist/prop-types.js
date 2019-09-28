@@ -20,7 +20,7 @@ var StyledComponent = _propTypes["default"].shape({
 
 var propTypes = {
   actions: _propTypes["default"].arrayOf(_propTypes["default"].oneOfType([_propTypes["default"].func, _propTypes["default"].shape({
-    icon: _propTypes["default"].oneOfType([_propTypes["default"].element, _propTypes["default"].func, _propTypes["default"].string]).isRequired,
+    icon: _propTypes["default"].oneOfType([_propTypes["default"].element, _propTypes["default"].func, _propTypes["default"].string, RefComponent]).isRequired,
     isFreeAction: _propTypes["default"].bool,
     tooltip: _propTypes["default"].string,
     onClick: _propTypes["default"].func.isRequired,
@@ -50,6 +50,7 @@ var propTypes = {
     grouping: _propTypes["default"].bool,
     headerStyle: _propTypes["default"].object,
     hidden: _propTypes["default"].bool,
+    fixed: _propTypes["default"].bool,
     initialEditValue: _propTypes["default"].any,
     lookup: _propTypes["default"].object,
     editable: _propTypes["default"].oneOf(['always', 'onUpdate', 'onAdd', 'never', _propTypes["default"].func]),
@@ -103,6 +104,7 @@ var propTypes = {
     LastPage: _propTypes["default"].oneOfType([_propTypes["default"].element, _propTypes["default"].func, RefComponent]),
     NextPage: _propTypes["default"].oneOfType([_propTypes["default"].element, _propTypes["default"].func, RefComponent]),
     PreviousPage: _propTypes["default"].oneOfType([_propTypes["default"].element, _propTypes["default"].func, RefComponent]),
+    Refresh: _propTypes["default"].oneOfType([_propTypes["default"].element, _propTypes["default"].func, RefComponent]),
     ResetSearch: _propTypes["default"].oneOfType([_propTypes["default"].element, _propTypes["default"].func, RefComponent]),
     Search: _propTypes["default"].oneOfType([_propTypes["default"].element, _propTypes["default"].func, RefComponent]),
     SortArrow: _propTypes["default"].oneOfType([_propTypes["default"].element, _propTypes["default"].func, RefComponent]),

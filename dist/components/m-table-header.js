@@ -67,7 +67,7 @@ function (_React$Component) {
         var content = columnDef.title;
 
         if (_this.props.draggable) {
-          content = React.createElement(_reactBeautifulDnd.Draggable, {
+          content = columnDef.fixed ? React.createElement(React.Fragment, null, columnDef.title) : React.createElement(_reactBeautifulDnd.Draggable, {
             key: columnDef.tableData.id,
             draggableId: columnDef.tableData.id.toString(),
             index: index
