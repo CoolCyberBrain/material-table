@@ -644,7 +644,9 @@ function (_React$Component) {
           headerStyle: props.options.headerStyle,
           icons: props.icons,
           selectedCount: _this4.state.selectedCount,
-          dataCount: props.parentChildData ? _this4.state.treefiedDataLength : _this4.state.data.length,
+          dataCount: props.parentChildData ? _this4.state.treefiedDataLength : _this4.state.columns.filter(function (col) {
+            return col.tableData.groupOrder > -1;
+          }).length > 0 ? _this4.state.groupedDataLength : _this4.state.data.length,
           hasDetailPanel: !!props.detailPanel,
           detailPanelColumnAlignment: props.options.detailPanelColumnAlignment,
           showActionsColumn: props.actions && props.actions.filter(function (a) {

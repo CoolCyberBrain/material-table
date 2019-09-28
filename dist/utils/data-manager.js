@@ -43,6 +43,7 @@ function () {
     (0, _defineProperty2["default"])(this, "selectedCount", 0);
     (0, _defineProperty2["default"])(this, "treefiedDataLength", 0);
     (0, _defineProperty2["default"])(this, "treeDataMaxLevel", 0);
+    (0, _defineProperty2["default"])(this, "groupedDataLength", 0);
     (0, _defineProperty2["default"])(this, "defaultExpanded", false);
     (0, _defineProperty2["default"])(this, "data", []);
     (0, _defineProperty2["default"])(this, "columns", []);
@@ -151,7 +152,8 @@ function () {
         searchText: _this.searchText,
         selectedCount: _this.selectedCount,
         treefiedDataLength: _this.treefiedDataLength,
-        treeDataMaxLevel: _this.treeDataMaxLevel
+        treeDataMaxLevel: _this.treeDataMaxLevel,
+        groupedDataLength: _this.groupedDataLength
       };
     });
     (0, _defineProperty2["default"])(this, "filterData", function () {
@@ -656,6 +658,7 @@ function () {
       var _this5 = this;
 
       this.sorted = this.paged = false;
+      this.groupedDataLength = 0;
       var tmpData = (0, _toConsumableArray2["default"])(this.searchedData);
       var groups = this.columns.filter(function (col) {
         return col.tableData.groupOrder > -1;
@@ -692,6 +695,7 @@ function () {
           return group;
         }, object);
         object.data.push(currentRow);
+        _this5.groupedDataLength++;
         return result;
       }, {
         groups: [],

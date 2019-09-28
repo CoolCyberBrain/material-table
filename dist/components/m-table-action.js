@@ -82,7 +82,11 @@ function (_React$Component) {
       })));
 
       if (action.tooltip) {
-        return React.createElement(_Tooltip["default"], {
+        // fix for issue #1049
+        // https://github.com/mbrn/material-table/issues/1049
+        return action.disabled ? React.createElement(_Tooltip["default"], {
+          title: action.tooltip
+        }, React.createElement("span", null, button)) : React.createElement(_Tooltip["default"], {
           title: action.tooltip
         }, button);
       } else {
