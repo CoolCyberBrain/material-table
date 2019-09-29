@@ -12,7 +12,10 @@ class MTableBody extends React.Component {
     const localization = { ...MTableBody.defaultProps.localization, ...this.props.localization };
     if (this.props.options.showEmptyDataSourceMessage && renderData.length === 0) {
       let addColumn = 0;
-      if (this.props.options.selection || (this.props.actions && this.props.actions.filter(a => !a.isFreeAction && !this.props.options.selection).length > 0)) {
+      if (this.props.options.selection) {
+        addColumn++;
+      }
+      if ((this.props.actions && this.props.actions.filter(a => !a.isFreeAction).length > 0)) {
         addColumn++;
       }
       if (this.props.hasDetailPanel) {
