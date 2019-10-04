@@ -27,11 +27,11 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/de
 
 var _Checkbox = _interopRequireDefault(require("@material-ui/core/Checkbox"));
 
-var _FormControlLabel = _interopRequireDefault(require("@material-ui/core/FormControlLabel"));
-
 var _IconButton = _interopRequireDefault(require("@material-ui/core/IconButton"));
 
 var _InputAdornment = _interopRequireDefault(require("@material-ui/core/InputAdornment"));
+
+var _ListSubheader = _interopRequireDefault(require("@material-ui/core/ListSubheader"));
 
 var _Menu = _interopRequireDefault(require("@material-ui/core/Menu"));
 
@@ -173,16 +173,11 @@ function (_React$Component) {
           return _this3.setState({
             columnsButtonAnchorEl: null
           });
+        },
+        MenuListProps: {
+          subheader: React.createElement(_ListSubheader["default"], null, localization.addRemoveColumns)
         }
-      }, React.createElement(_MenuItem["default"], {
-        key: "text",
-        disabled: true,
-        style: {
-          opacity: 1,
-          fontWeight: 600,
-          fontSize: 12
-        }
-      }, localization.addRemoveColumns), this.props.columns.map(function (col) {
+      }, this.props.columns.map(function (col) {
         return React.createElement("li", {
           key: col.tableData.id
         }, React.createElement(_MenuItem["default"], {

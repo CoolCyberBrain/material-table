@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import ListSubheader from '@material-ui/core/ListSubheader';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
@@ -114,10 +114,8 @@ export class MTableToolbar extends React.Component {
             <Menu
               anchorEl={this.state.columnsButtonAnchorEl}
               open={Boolean(this.state.columnsButtonAnchorEl)}
-              onClose={() => this.setState({ columnsButtonAnchorEl: null })}>
-              <MenuItem key={"text"} disabled style={{ opacity: 1, fontWeight: 600, fontSize: 12 }}>
-                {localization.addRemoveColumns}
-              </MenuItem>
+              onClose={() => this.setState({ columnsButtonAnchorEl: null })}
+              MenuListProps={{subheader: <ListSubheader>{localization.addRemoveColumns}</ListSubheader>}}>
               {
                 this.props.columns.map((col) => {
                   return (
