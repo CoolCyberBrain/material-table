@@ -215,7 +215,7 @@ function (_React$Component) {
         onClick: this.exportCsv
       }, localization.exportName))), React.createElement("span", null, React.createElement(this.props.components.Actions, {
         actions: this.props.actions && this.props.actions.filter(function (a) {
-          return a.isFreeAction;
+          return a.position === "toolbar";
         }),
         components: this.props.components
       })));
@@ -225,7 +225,7 @@ function (_React$Component) {
     value: function renderSelectedActions() {
       return React.createElement(React.Fragment, null, React.createElement(this.props.components.Actions, {
         actions: this.props.actions.filter(function (a) {
-          return !a.isFreeAction;
+          return a.position === "toolbarOnSelect";
         }),
         data: this.props.selectedRows,
         components: this.props.components

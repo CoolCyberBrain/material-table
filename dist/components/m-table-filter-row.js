@@ -236,7 +236,7 @@ function (_React$Component) {
         }));
       }
 
-      if (this.props.emptyCell && this.props.hasActions) {
+      if (this.props.hasActions) {
         if (this.props.actionsColumnIndex === -1) {
           columns.push(React.createElement(_TableCell["default"], {
             key: "key-action-column"
@@ -287,7 +287,6 @@ function (_React$Component) {
 }(React.Component);
 
 MTableFilterRow.defaultProps = {
-  emptyCell: false,
   columns: [],
   selection: false,
   hasActions: false,
@@ -296,7 +295,6 @@ MTableFilterRow.defaultProps = {
   }
 };
 MTableFilterRow.propTypes = {
-  emptyCell: _propTypes["default"].bool,
   columns: _propTypes["default"].array.isRequired,
   hasDetailPanel: _propTypes["default"].bool.isRequired,
   isTreeData: _propTypes["default"].bool.isRequired,

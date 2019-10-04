@@ -464,13 +464,26 @@ function (_React$Component) {
       calculatedProps.options = (0, _objectSpread2["default"])({}, MaterialTable.defaultProps.options, calculatedProps.options);
       var localization = calculatedProps.localization.body;
       calculatedProps.actions = (0, _toConsumableArray2["default"])(calculatedProps.actions || []);
+      if (calculatedProps.options.selection) calculatedProps.actions = calculatedProps.actions.map(function (action) {
+        if (action.position === "auto" || action.isFreeAction === false || action.position === undefined && action.isFreeAction === undefined) return (0, _objectSpread2["default"])({}, action, {
+          position: "toolbarOnSelect"
+        });else if (action.isFreeAction) return (0, _objectSpread2["default"])({}, action, {
+          position: "toolbar"
+        });else return action;
+      });else calculatedProps.actions = calculatedProps.actions.map(function (action) {
+        if (action.position === "auto" || action.isFreeAction === false || action.position === undefined && action.isFreeAction === undefined) return (0, _objectSpread2["default"])({}, action, {
+          position: "row"
+        });else if (action.isFreeAction) return (0, _objectSpread2["default"])({}, action, {
+          position: "toolbar"
+        });else return action;
+      });
 
       if (calculatedProps.editable) {
         if (calculatedProps.editable.onRowAdd) {
           calculatedProps.actions.push({
             icon: calculatedProps.icons.Add,
             tooltip: localization.addTooltip,
-            isFreeAction: true,
+            position: "toolbar",
             onClick: function onClick() {
               _this3.dataManager.changeRowEditing();
 
@@ -650,7 +663,7 @@ function (_React$Component) {
           hasDetailPanel: !!props.detailPanel,
           detailPanelColumnAlignment: props.options.detailPanelColumnAlignment,
           showActionsColumn: props.actions && props.actions.filter(function (a) {
-            return !a.isFreeAction && !_this4.props.options.selection;
+            return a.position === "row";
           }).length > 0,
           showSelectAllCheckbox: props.options.showSelectAllCheckbox,
           orderBy: _this4.state.orderBy,

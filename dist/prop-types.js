@@ -22,6 +22,7 @@ var propTypes = {
   actions: _propTypes["default"].arrayOf(_propTypes["default"].oneOfType([_propTypes["default"].func, _propTypes["default"].shape({
     icon: _propTypes["default"].oneOfType([_propTypes["default"].element, _propTypes["default"].func, _propTypes["default"].string, RefComponent]).isRequired,
     isFreeAction: _propTypes["default"].bool,
+    position: _propTypes["default"].oneOf(['auto', 'toolbar', 'toolbarOnSelect', 'row']),
     tooltip: _propTypes["default"].string,
     onClick: _propTypes["default"].func.isRequired,
     iconProps: _propTypes["default"].object,
