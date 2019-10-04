@@ -155,6 +155,7 @@ function (_React$Component) {
       var _this3 = this;
 
       var localization = (0, _objectSpread2["default"])({}, MTableToolbar.defaultProps.localization, this.props.localization);
+      var classes = this.props.classes;
       return React.createElement("div", null, this.props.columnsButton && React.createElement("span", null, React.createElement(_Tooltip["default"], {
         title: localization.showColumnsTitle
       }, React.createElement(_IconButton["default"], {
@@ -182,18 +183,20 @@ function (_React$Component) {
           fontSize: 12
         }
       }, localization.addRemoveColumns), this.props.columns.map(function (col) {
-        return React.createElement(_MenuItem["default"], {
-          key: col.tableData.id,
-          disabled: col.removable === false,
-          onClick: function onClick() {
+        return React.createElement("li", {
+          key: col.tableData.id
+        }, React.createElement(_MenuItem["default"], {
+          className: classes.formControlLabel,
+          component: "label",
+          htmlFor: "column-toggle-".concat(col.tableData.id),
+          disabled: col.removable === false
+        }, React.createElement(_Checkbox["default"], {
+          checked: !col.hidden,
+          id: "column-toggle-".concat(col.tableData.id),
+          onChange: function onChange() {
             return _this3.props.onColumnsChanged(col, !col.hidden);
           }
-        }, React.createElement(_FormControlLabel["default"], {
-          label: col.title,
-          control: React.createElement(_Checkbox["default"], {
-            checked: !col.hidden
-          })
-        }));
+        }), React.createElement("span", null, col.title)));
       }))), this.props.exportButton && React.createElement("span", null, React.createElement(_Tooltip["default"], {
         title: localization.exportTitle
       }, React.createElement(_IconButton["default"], {
@@ -337,6 +340,10 @@ var styles = function styles(theme) {
     },
     searchField: {
       paddingLeft: theme.spacing(2)
+    },
+    formControlLabel: {
+      paddingLeft: theme.spacing(1),
+      paddingRight: theme.spacing(1)
     }
   };
 };
