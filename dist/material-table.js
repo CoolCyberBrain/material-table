@@ -650,7 +650,7 @@ function (_React$Component) {
           hasDetailPanel: !!props.detailPanel,
           detailPanelColumnAlignment: props.options.detailPanelColumnAlignment,
           showActionsColumn: props.actions && props.actions.filter(function (a) {
-            return !a.isFreeAction;
+            return !a.isFreeAction && !_this4.props.options.selection;
           }).length > 0,
           showSelectAllCheckbox: props.options.showSelectAllCheckbox,
           orderBy: _this4.state.orderBy,

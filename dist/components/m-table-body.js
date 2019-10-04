@@ -190,6 +190,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       var renderData = this.props.renderData;
       var groups = this.props.columns.filter(function (col) {
         return col.tableData.groupOrder > -1;
@@ -208,10 +210,10 @@ function (_React$Component) {
         }),
         icons: this.props.icons,
         emptyCell: this.props.options.selection || this.props.actions && this.props.actions.filter(function (a) {
-          return !a.isFreeAction;
+          return !a.isFreeAction && !_this3.props.options.selection;
         }).length > 0,
         hasActions: this.props.actions && this.props.actions.filter(function (a) {
-          return !a.isFreeAction;
+          return !a.isFreeAction && !_this3.props.options.selection;
         }).length > 0,
         actionsColumnIndex: this.props.options.actionsColumnIndex,
         onFilterChanged: this.props.onFilterChanged,
