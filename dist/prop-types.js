@@ -28,6 +28,9 @@ var propTypes = {
     iconProps: _propTypes["default"].object,
     disabled: _propTypes["default"].bool,
     hidden: _propTypes["default"].bool
+  }), _propTypes["default"].shape({
+    action: _propTypes["default"].func.isRequired,
+    position: _propTypes["default"].oneOf(['auto', 'toolbar', 'toolbarOnSelect', 'row'])
   })])),
   columns: _propTypes["default"].arrayOf(_propTypes["default"].shape({
     cellStyle: _propTypes["default"].oneOfType([_propTypes["default"].object, _propTypes["default"].func]),
