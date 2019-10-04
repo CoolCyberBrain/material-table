@@ -8,7 +8,7 @@ const StyledComponent = PropTypes.shape({
 
 export const propTypes = {
   actions: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
-    icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.string, RefComponent]).isRequired,
+    icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.string]).isRequired,
     isFreeAction: PropTypes.bool,
     tooltip: PropTypes.string,
     onClick: PropTypes.func.isRequired,
@@ -97,7 +97,6 @@ export const propTypes = {
     LastPage: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),
     NextPage: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),
     PreviousPage: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),
-    Refresh: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),
     ResetSearch: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),
     Search: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),
     SortArrow: PropTypes.oneOfType([PropTypes.element, PropTypes.func, RefComponent]),

@@ -226,7 +226,7 @@ MTableEditRow.defaultProps = {
   localization: {
     saveTooltip: 'Save',
     cancelTooltip: 'Cancel',
-    deleteText: 'Are you sure you want to delete this row?',
+    deleteText: 'Are you sure delete this row?',
   }
 };
 
