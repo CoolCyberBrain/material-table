@@ -225,7 +225,13 @@ function (_React$Component) {
   }, {
     key: "renderSelectedActions",
     value: function renderSelectedActions() {
-      return null;
+      return React.createElement(React.Fragment, null, React.createElement(this.props.components.Actions, {
+        actions: this.props.actions.filter(function (a) {
+          return !a.isFreeAction;
+        }),
+        data: this.props.selectedRows,
+        components: this.props.components
+      }));
     }
   }, {
     key: "renderActions",
