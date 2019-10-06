@@ -467,19 +467,39 @@ function (_React$Component) {
       if (calculatedProps.options.selection) calculatedProps.actions = calculatedProps.actions.filter(function (a) {
         return a;
       }).map(function (action) {
-        if (action.position === "auto" || action.isFreeAction === false || action.position === undefined && action.isFreeAction === undefined) return (0, _objectSpread2["default"])({}, action, {
-          position: "toolbarOnSelect"
-        });else if (action.isFreeAction) return (0, _objectSpread2["default"])({}, action, {
-          position: "toolbar"
-        });else return action;
+        if (action.position === "auto" || action.isFreeAction === false || action.position === undefined && action.isFreeAction === undefined) {
+          if (typeof action === "function") return {
+            action: action,
+            position: "toolbarOnSelect"
+          };else return (0, _objectSpread2["default"])({}, action, {
+            position: "toolbarOnSelect"
+          });
+        } else if (action.isFreeAction) {
+          if (typeof action === "function") return {
+            action: action,
+            position: "toolbar"
+          };else return (0, _objectSpread2["default"])({}, action, {
+            position: "toolbar"
+          });
+        } else return action;
       });else calculatedProps.actions = calculatedProps.actions.filter(function (a) {
         return a;
       }).map(function (action) {
-        if (action.position === "auto" || action.isFreeAction === false || action.position === undefined && action.isFreeAction === undefined) return (0, _objectSpread2["default"])({}, action, {
-          position: "row"
-        });else if (action.isFreeAction) return (0, _objectSpread2["default"])({}, action, {
-          position: "toolbar"
-        });else return action;
+        if (action.position === "auto" || action.isFreeAction === false || action.position === undefined && action.isFreeAction === undefined) {
+          if (typeof action === "function") return {
+            action: action,
+            position: "row"
+          };else return (0, _objectSpread2["default"])({}, action, {
+            position: "row"
+          });
+        } else if (action.isFreeAction) {
+          if (typeof action === "function") return {
+            action: action,
+            position: "toolbar"
+          };else return (0, _objectSpread2["default"])({}, action, {
+            position: "toolbar"
+          });
+        } else return action;
       });
 
       if (calculatedProps.editable) {
