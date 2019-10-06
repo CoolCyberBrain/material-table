@@ -464,13 +464,17 @@ function (_React$Component) {
       calculatedProps.options = (0, _objectSpread2["default"])({}, MaterialTable.defaultProps.options, calculatedProps.options);
       var localization = calculatedProps.localization.body;
       calculatedProps.actions = (0, _toConsumableArray2["default"])(calculatedProps.actions || []);
-      if (calculatedProps.options.selection) calculatedProps.actions = calculatedProps.actions.map(function (action) {
+      if (calculatedProps.options.selection) calculatedProps.actions = calculatedProps.actions.filter(function (a) {
+        return a;
+      }).map(function (action) {
         if (action.position === "auto" || action.isFreeAction === false || action.position === undefined && action.isFreeAction === undefined) return (0, _objectSpread2["default"])({}, action, {
           position: "toolbarOnSelect"
         });else if (action.isFreeAction) return (0, _objectSpread2["default"])({}, action, {
           position: "toolbar"
         });else return action;
-      });else calculatedProps.actions = calculatedProps.actions.map(function (action) {
+      });else calculatedProps.actions = calculatedProps.actions.filter(function (a) {
+        return a;
+      }).map(function (action) {
         if (action.position === "auto" || action.isFreeAction === false || action.position === undefined && action.isFreeAction === undefined) return (0, _objectSpread2["default"])({}, action, {
           position: "row"
         });else if (action.isFreeAction) return (0, _objectSpread2["default"])({}, action, {
